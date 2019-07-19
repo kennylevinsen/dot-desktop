@@ -78,7 +78,11 @@ fn main() {
 					println!("{:}{:}", match d.term {
 						true => term,
 						false => app,
-					}, d.exec);
+					}, d.exec
+						.replace("%f", "")
+						.replace("%F", "")
+						.replace("%u", "")
+						.replace("%U", ""));
 					return
 				}
 			}
