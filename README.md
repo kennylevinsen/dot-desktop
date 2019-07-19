@@ -31,6 +31,7 @@ then
     fi
 
     $command_str
+    exit 0
 fi
 
 exit 1
