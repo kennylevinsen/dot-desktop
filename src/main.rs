@@ -55,6 +55,7 @@ fn main() {
 	let paths: Vec<String> = vec![
 		"/usr/share/applications".to_string(),
 		"/usr/local/share/applications".to_string(),
+		"/var/lib/flatpak/exports/share/applications".to_string(),
 		format!("{}/.local/share/applications", home).to_string()];
 
 	let desktop_entries: Vec<Desktop> = paths
