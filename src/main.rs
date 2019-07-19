@@ -72,20 +72,30 @@ fn main() {
 				println!("{:}", d.name)
 			}
 		},
-		2 => {
+		2|3 => {
 			for d in desktop_entries {
-				if d.name == args[1] {
-					println!("{:}{:}", match d.term {
-						true => term,
-						false => app,
-					}, d.exec
-						.replace("%f", "")
-						.replace("%F", "")
-						.replace("%u", "")
-						.replace("%U", ""));
-					return
+				if d.name != args[1] {
+					continue;
 				}
+
+				let arg = if args.len() == 3 {
+					&args[2]
+				} else {
+					""
+				};
+
+				println!("{:}{:}", match d.term {
+					true => term,
+					false => app,
+				}, d.exec
+					.replace("%f", arg)
+					.replace("%F", arg)
+					.replace("%u", arg)
+					.replace("%U", arg));
+				return
 			}
+			eprintln!("no match for name");
+			std::process::exit(2);
 		},
 		_ => {
 			eprintln!("dot-desktop takes 0 or 1 arguments");
