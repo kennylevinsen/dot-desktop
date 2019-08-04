@@ -39,7 +39,11 @@ exit 1
 
 ## Which folders are read
 
-`/usr/share/applications`, `/usr/local/share/applications` and `${HOME}/.local/share/applications`.
+- /usr/share/applications
+- /usr/local/share/applications
+- /var/lib/flatpak/exports/share/applications
+- ${HOME}/.local/share/applications
+- ${HOME}/.local/share/flatpak/exports/share/applications
 
 Might be updated to handle some XDG stuff later.
 
