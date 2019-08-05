@@ -13,7 +13,7 @@ Configuration can be done with these environment variables:
 
 One-liner (list, select, find match, run):
 ```
-eval $(dot-desktop $(dot-desktop | bemenu -i -p 'exec:'))
+eval "$(dot-desktop "$(dot-desktop | bemenu -i -p 'exec:')")"
 ```
 
 Example wrapper that handles arbitrary scripts:
